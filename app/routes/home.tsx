@@ -44,12 +44,13 @@ export default function Home() {
       <section className="main-section">
         <div className="page-heading py-16">
           <h1>Track Your Applications & Resume Ratings</h1>
-          {!loadingResumes && resumes.length === 0 && (
+          {!loadingResumes && resumes.length === 0 ? (
             <h2 className="text-gray-500">
               No resumes found. Upload your first resume to get feedback!
             </h2>
+          ) : (
+            <h2>Review your submission and check AI-powered feedback.</h2>
           )}
-          <h2>Review your submission and check AI-powered feedback.</h2>
         </div>
         {loadingResumes && (
           <div className="flex flex-col justify-center items-center">
@@ -64,7 +65,7 @@ export default function Home() {
           </div>
         )}
         {!loadingResumes && resumes.length === 0 && (
-          <div className="flex flex-col items-center justify-center mt-10 gap-4">
+          <div className="flex flex-col items-center justify-center gap-4">
             <Link to="/upload" className="primary-button w-fit text-xl font-semibold">
               Upload New Resume
             </Link>
